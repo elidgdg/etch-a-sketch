@@ -10,11 +10,20 @@ function createDivs() {
         for (let j = 0; j < cols; j++) {
             let gridSquare = document.createElement("div");
             gridSquare.className = "gridsquare";
-            gridSquare.innerText = "0";
             row.appendChild(gridSquare);
         }
         container.appendChild(row);
     }
 }
 
+function setColor(element, color) {
+    element.style.backgroundColor = color;
+}
+
 createDivs();
+
+const gridSquares = document.querySelectorAll(".gridsquare");
+
+gridSquares.forEach((gridSquare) => {
+    gridSquare.addEventListener('mouseover', () => setColor(gridSquare, 'red'));
+});
