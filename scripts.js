@@ -32,12 +32,18 @@ const gridSquares = document.querySelectorAll(".gridsquare");
 const container = document.querySelector(".container");
 let mouseDown = false;
 
-// Listen for mouse entering/leaving a gridsquare
-gridSquares.forEach((gridSquare) => {
-    gridSquare.addEventListener('mouseenter', () => draw(gridSquare));
-});
 // Check if mouse is held down
 container.addEventListener('mousedown', () => (mouseDown = true));
 container.addEventListener('mouseup', () => (mouseDown = false));
+
+// Listen for mouse entering/leaving a gridsquare
+gridSquares.forEach((gridSquare) => {
+    // gridSquare.addEventListener('mouseenter', () => draw(gridSquare));
+    gridSquare.addEventListener('mousedown', () => {
+        mouseDown = true;
+        draw(gridSquare);
+    });
+});
+
 
 
