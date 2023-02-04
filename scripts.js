@@ -38,12 +38,15 @@ container.addEventListener('mouseup', () => (mouseDown = false));
 
 // Listen for mouse entering/leaving a gridsquare
 gridSquares.forEach((gridSquare) => {
-    // gridSquare.addEventListener('mouseenter', () => draw(gridSquare));
+    gridSquare.addEventListener('mouseenter', () => draw(gridSquare));
     gridSquare.addEventListener('mousedown', () => {
         mouseDown = true;
         draw(gridSquare);
     });
 });
 
+const changeSizeBtn = document.querySelector(".size-btn");
+changeSizeBtn.addEventListener("click", () => changeSize());
+//IMPLEMENT CHANGESIZE FUNCTION
 
 
