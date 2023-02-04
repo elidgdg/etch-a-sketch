@@ -25,5 +25,15 @@ createDivs();
 const gridSquares = document.querySelectorAll(".gridsquare");
 
 gridSquares.forEach((gridSquare) => {
-    gridSquare.addEventListener('mouseover', () => setColor(gridSquare, 'red'));
+    gridSquare.addEventListener('mouseenter', () => setColor(gridSquare, 'red'));
+    gridSquare.addEventListener('mouseleave', () => setColor(gridSquare, 'black'));
 });
+
+const container = document.querySelector(".container");
+container.addEventListener('mousedown', () => (mouseDown = true));
+container.addEventListener('mouseup', () => (mouseDown = false));
+
+let mouseDown = false;
+
+container.addEventListener('mousedown', () => (console.log(mouseDown)));
+container.addEventListener('mouseup', () => (console.log(mouseDown)));
