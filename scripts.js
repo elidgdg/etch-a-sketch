@@ -28,6 +28,14 @@ function draw(pixel) {
     setColor(pixel, 'red');
 }
 
+function changeCanvasSize() {
+    let squaresPerSide = 0;
+    while (squaresPerSide < 1 || squaresPerSide > 100 || isNaN(squaresPerSide)) {
+       squaresPerSide = parseInt(prompt("How many squares per side?"));
+    }
+
+}
+
 const gridSquares = document.querySelectorAll(".gridsquare");
 const container = document.querySelector(".container");
 let mouseDown = false;
@@ -46,7 +54,6 @@ gridSquares.forEach((gridSquare) => {
 });
 
 const changeSizeBtn = document.querySelector(".size-btn");
-changeSizeBtn.addEventListener("click", () => changeSize());
-//IMPLEMENT CHANGESIZE FUNCTION
-
+changeSizeBtn.addEventListener("click", () => changeCanvasSize());
+//IMPLEMENT CHANGEcanvasSIZE FUNCTION
 
