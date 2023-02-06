@@ -1,8 +1,8 @@
 // Create a 16x16 grid of divs
-function createDivs() {
+function createDivs(squaresPerSide) {
     const container = document.querySelector(".container");
-    const rows = 16;
-    const cols = 16;
+    const rows = squaresPerSide;
+    const cols = squaresPerSide;
 
 
     for (let i = 0; i < rows; i++) {
@@ -16,7 +16,7 @@ function createDivs() {
         container.appendChild(row);
     }
 }
-createDivs();
+createDivs(16);
 // Set the color of an html element
 function setColor(element, color) {
     element.style.backgroundColor = color;
@@ -31,7 +31,9 @@ function draw(pixel) {
 function changeCanvasSize() {
     let squaresPerSide = 0;
     while (squaresPerSide < 1 || squaresPerSide > 100 || isNaN(squaresPerSide)) {
-       squaresPerSide = parseInt(prompt("How many squares per side?"));
+        squaresPerSide = parseInt(prompt("How many squares per side?"));
+        console.log(squaresPerSide);
+
     }
 
 }
