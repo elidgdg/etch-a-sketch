@@ -3,6 +3,7 @@ function createDivs(squaresPerSide) {
     const container = document.querySelector(".container");
     const rows = squaresPerSide;
     const cols = squaresPerSide;
+    container.innerHTML = '';
 
 
     for (let i = 0; i < rows; i++) {
@@ -15,6 +16,7 @@ function createDivs(squaresPerSide) {
         }
         container.appendChild(row);
     }
+    addGridListeners();
 }
 createDivs(16);
 // Set the color of an html element
@@ -32,9 +34,9 @@ function changeCanvasSize() {
     let squaresPerSide = 0;
     while (squaresPerSide < 1 || squaresPerSide > 100 || isNaN(squaresPerSide)) {
         squaresPerSide = parseInt(prompt("How many squares per side?"));
-        console.log(squaresPerSide);
 
     }
+    createDivs(squaresPerSide);
 
 }
 
@@ -47,13 +49,17 @@ container.addEventListener('mousedown', () => (mouseDown = true));
 container.addEventListener('mouseup', () => (mouseDown = false));
 
 // Listen for mouse entering/leaving a gridsquare
-gridSquares.forEach((gridSquare) => {
-    gridSquare.addEventListener('mouseenter', () => draw(gridSquare));
-    gridSquare.addEventListener('mousedown', () => {
-        mouseDown = true;
-        draw(gridSquare);
+function addGridListeners() {
+    const gridSquares = document.querySelectorAll(".gridsquare");
+    gridSquares.forEach((gridSquare) => {
+        gridSquare.addEventListener('mouseenter', () => draw(gridSquare));
+        gridSquare.addEventListener('mousedown', () => {
+            mouseDown = true;
+            draw(gridSquare);
+        });
     });
-});
+}
+
 
 const changeSizeBtn = document.querySelector(".size-btn");
 changeSizeBtn.addEventListener("click", () => changeCanvasSize());
